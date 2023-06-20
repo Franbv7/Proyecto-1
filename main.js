@@ -22,12 +22,11 @@ fetch(
 
       for (let i = 0; i < respuestas.length; i++) {
         let answerItem = document.createElement("li");
-        let answerButton = document.createElement("button");
-        answerButton.textContent = respuestas[i];
-        answerItem.appendChild(answerButton);
+        answerItem.textContent = respuestas[i];
+
         listaRespuestas.appendChild(answerItem);
 
-        answerButton.addEventListener("click", () => {
+        answerItem.addEventListener("click", () => {
           if (!respuestaSeleccionada) {
             respuestaSeleccionada = true;
             if (respuestas[i] === respuestaCorrecta) {
@@ -35,11 +34,13 @@ fetch(
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent = "¡Respuesta correcta!";
+              answerItem.style.backgroundColor = "green";
             } else {
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent =
                 "La respuesta correcta es: " + respuestaCorrecta;
+              answerItem.style.backgroundColor = "red";
             }
             mostrarBotonSiguiente();
           }
@@ -52,7 +53,7 @@ fetch(
 
       let respuestaCorrectaElement =
         document.getElementById("respuestaCorrecta");
-      respuestaCorrectaElement.textContent = ""; // Limpiar respuesta correcta previa
+      respuestaCorrectaElement.textContent = "";
 
       let contadorAciertosElement = document.getElementById("contadorAciertos");
       contadorAciertosElement.textContent = "Aciertos: " + contadorAciertos;
@@ -70,7 +71,6 @@ fetch(
       indicePreguntasActual++;
       if (indicePreguntasActual >= objetosJson.length) {
         indicePreguntasActual = 0;
-        // Si se alcanza el final de las preguntas
         let contenedorQuiz = document.getElementById("contenedor-quiz");
         contenedorQuiz.innerHTML =
           "<h2>¡Has finalizado!</h2><p>Aciertos: " +
@@ -94,7 +94,6 @@ fetch(
     let btnSiguiente = document.getElementById("btnSiguiente");
     btnSiguiente.addEventListener("click", preguntaSiguiente);
 
-    // Mostrar la primera pregunta al cargar la página
     mostrarPregunta(indicePreguntasActual);
   })
   .catch((error) => {
