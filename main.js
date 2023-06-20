@@ -8,6 +8,8 @@ fetch(
     let indicePreguntasActual = 0;
     let contadorAciertos = 0;
     let respuestaSeleccionada = false;
+    let curiosidadMostrada = false; //Si se muestra o no la curiosidad
+    let curiosidadIndex = -1;
 
     function mostrarPregunta(index) {
       let pregunta = objetosJson[index].question;
@@ -22,11 +24,12 @@ fetch(
 
       for (let i = 0; i < respuestas.length; i++) {
         let answerItem = document.createElement("li");
-        answerItem.textContent = respuestas[i];
-
+        let answerButton = document.createElement("button");
+        answerButton.textContent = respuestas[i];
+        answerItem.appendChild(answerButton);
         listaRespuestas.appendChild(answerItem);
 
-        answerItem.addEventListener("click", () => {
+        answerButton.addEventListener("click", () => {
           if (!respuestaSeleccionada) {
             respuestaSeleccionada = true;
             if (respuestas[i] === respuestaCorrecta) {
@@ -34,13 +37,11 @@ fetch(
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent = "¡Respuesta correcta!";
-              answerItem.style.backgroundColor = "green";
             } else {
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent =
                 "La respuesta correcta es: " + respuestaCorrecta;
-              answerItem.style.backgroundColor = "red";
             }
             mostrarBotonSiguiente();
           }
@@ -53,24 +54,29 @@ fetch(
 
       let respuestaCorrectaElement =
         document.getElementById("respuestaCorrecta");
-      respuestaCorrectaElement.textContent = "";
+      respuestaCorrectaElement.textContent = ""; // Limpiar respuesta correcta previa
 
       let contadorAciertosElement = document.getElementById("contadorAciertos");
       contadorAciertosElement.textContent = "Aciertos: " + contadorAciertos;
 
       mostrarBotonSiguiente();
+      mostrarCuriosidad(index);
     }
 
     function mostrarBotonSiguiente() {
       let btnSiguiente = document.getElementById("btnSiguiente");
-      btnSiguiente.style.display = respuestaSeleccionada ? "block" : "none";
+      btnSiguiente.disabled = !respuestaSeleccionada;
     }
 
     function preguntaSiguiente() {
+      if (!respuestaSeleccionada) {
+        return; //Si no selecciona ninguna respuesta
+      }
       respuestaSeleccionada = false;
       indicePreguntasActual++;
       if (indicePreguntasActual >= objetosJson.length) {
         indicePreguntasActual = 0;
+        // Si se alcanza el final de las preguntas
         let contenedorQuiz = document.getElementById("contenedor-quiz");
         contenedorQuiz.innerHTML =
           "<h2>¡Has finalizado!</h2><p>Aciertos: " +
@@ -84,17 +90,104 @@ fetch(
       mostrarPregunta(indicePreguntasActual);
     }
 
-    let contadorPreguntas = document.getElementById("contadorPreguntas");
-    contadorPreguntas.textContent =
-      "Pregunta " + (indicePreguntasActual + 1) + " de " + objetosJson.length;
+    function mostrarCuriosidad(preguntaIndex) {
+      let curiosidades = [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Chris Pratt apparently stole his Star-Lord costume from the set of Guardians of the Galaxy. He plans to wear it to children's hospitals to entertain sick children.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "During the filming of the scene where Hulk grabs Loki and smashes him on the ground in The Avengers, Tom Hiddleston's head was swapped with a stuntman's head to achieve the effect.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Tom Holland found out he got the role of Spider-Man through Instagram. He saw Marvel's post about it and thought it was a joke at first.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "The Spider-Man suit in Spider-Man: Homecoming has 26 web wings under the arms, paying homage to the character's iconic comic book design.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Dave Bautista had to sit in a sauna for 45 minutes to put on the Drax makeup and prosthetics for Guardians of the Galaxy. The process took about 4 hours in total.",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Scarlett Johansson's fight scenes as Black Widow are so intense that she sometimes mistakenly hits her co-stars during filming.",
+      ];
 
-    let contadorAciertosElement = document.getElementById("contadorAciertos");
-    contadorAciertosElement.textContent = "Aciertos: " + contadorAciertos;
+      let btnCuriosidad = document.getElementById("btnCuriosidad");
+      let curiosidadElemento = document.getElementById("curiosidad");
+
+      if (
+        preguntaIndex === 9 ||
+        preguntaIndex === 19 ||
+        preguntaIndex === 29 ||
+        preguntaIndex === 39 ||
+        preguntaIndex === 49
+      ) {
+        btnCuriosidad.style.display = "block";
+      } else {
+        btnCuriosidad.style.display = "none";
+      }
+
+      if (curiosidadIndex === preguntaIndex && curiosidadMostrada) {
+        curiosidadElemento.textContent = curiosidades[preguntaIndex] || "";
+        curiosidadElemento.style.display = "block";
+      } else {
+        curiosidadElemento.style.display = "none";
+        curiosidadElemento.textContent = "";
+      }
+    }
+
+    mostrarPregunta(indicePreguntasActual);
 
     let btnSiguiente = document.getElementById("btnSiguiente");
     btnSiguiente.addEventListener("click", preguntaSiguiente);
 
-    mostrarPregunta(indicePreguntasActual);
+    let btnCuriosidad = document.getElementById("btnCuriosidad");
+    btnCuriosidad.addEventListener("click", () => {
+      curiosidadIndex = indicePreguntasActual;
+      curiosidadMostrada = !curiosidadMostrada;
+      mostrarCuriosidad(indicePreguntasActual);
+    });
   })
   .catch((error) => {
     console.error("Error al cargar el archivo JSON:", error);
