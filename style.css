@@ -1,7 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#contenedor-quiz {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+#navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#btnAnterior,
+#btnSiguiente {
+  padding: 10px 20px;
+}
+
+#respuestas li {
+  margin-bottom: 10px;
+}
+
+#respuestaCorrecta {
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
 }
 
 html,
