@@ -3,3 +3,83 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./images/fondo-pc.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+#contenedor-quiz {
+  text-align: center;
+  width: 95%;
+  max-width: 850px;
+  margin: 0 auto;
+  border: 3px solid #020202;
+  background-color: gray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#pregunta {
+  font-weight: bold;
+  font-size: 38px;
+  padding: 20px;
+}
+
+#respuestas {
+  width: 650px;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+#respuestas li {
+  list-style-type: none;
+  font-size: 18px;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+#navigation {
+  padding: 5px;
+  margin-top: 10px;
+  display: flex;
+}
+
+#contadorPregunta {
+  text-align: right;
+}
+
+#respuestaCorrecta {
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+#btnSiguiente {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  border-width: 5px;
+}
