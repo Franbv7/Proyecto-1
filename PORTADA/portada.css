@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.light {
+/* .light {
   position: absolute;
   width: 200px;
   height: 200px;
@@ -16,7 +16,7 @@
   border-radius: 50%;
   pointer-events: none;
   filter: blur(20px);
-}
+} */
 
 html,
 body {
@@ -220,5 +220,21 @@ img {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .light {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(20px);
   }
 }
