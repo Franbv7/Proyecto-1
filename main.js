@@ -24,12 +24,11 @@ fetch(
 
       for (let i = 0; i < respuestas.length; i++) {
         let answerItem = document.createElement("li");
-        let answerButton = document.createElement("button");
-        answerButton.textContent = respuestas[i];
-        answerItem.appendChild(answerButton);
+        answerItem.textContent = respuestas[i];
+
         listaRespuestas.appendChild(answerItem);
 
-        answerButton.addEventListener("click", () => {
+        answerItem.addEventListener("click", () => {
           if (!respuestaSeleccionada) {
             respuestaSeleccionada = true;
             if (respuestas[i] === respuestaCorrecta) {
