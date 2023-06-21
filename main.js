@@ -51,14 +51,15 @@ fetch(
 
       let contadorPreguntas = document.getElementById("contadorPreguntas");
       contadorPreguntas.textContent =
-        "Pregunta " + (index + 1) + " de " + objetosJson.length;
+        "Question " + (index + 1) + " of " + objetosJson.length;
 
       let respuestaCorrectaElement =
         document.getElementById("respuestaCorrecta");
       respuestaCorrectaElement.textContent = ""; // Limpiar respuesta correcta previa
 
       let contadorAciertosElement = document.getElementById("contadorAciertos");
-      contadorAciertosElement.textContent = "Aciertos: " + contadorAciertos;
+      contadorAciertosElement.textContent =
+        "Correct answers: " + contadorAciertos;
 
       mostrarBotonSiguiente();
       mostrarCuriosidad(index);
