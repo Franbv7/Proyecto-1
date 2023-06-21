@@ -8,7 +8,7 @@ fetch(
     let indicePreguntasActual = 0;
     let contadorAciertos = 0;
     let respuestaSeleccionada = false;
-    let curiosidadMostrada = false; //Si se muestra o no la curiosidad
+    let curiosidadMostrada = false;
     let curiosidadIndex = -1;
 
     function mostrarPregunta(index) {
@@ -37,11 +37,13 @@ fetch(
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent = "¡Respuesta correcta!";
+              answerItem.style.backgroundColor = "#598e39";
             } else {
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent =
                 "La respuesta correcta es: " + respuestaCorrecta;
+              answerItem.style.backgroundColor = "#a93232";
             }
             mostrarBotonSiguiente();
           }
@@ -65,12 +67,13 @@ fetch(
 
     function mostrarBotonSiguiente() {
       let btnSiguiente = document.getElementById("btnSiguiente");
+      // btnSiguiente.style.display = respuestaSeleccionada ? "block" : "none";
       btnSiguiente.disabled = !respuestaSeleccionada;
     }
 
     function preguntaSiguiente() {
       if (!respuestaSeleccionada) {
-        return; //Si no selecciona ninguna respuesta
+        return;
       }
       respuestaSeleccionada = false;
       indicePreguntasActual++;
@@ -101,7 +104,7 @@ fetch(
         null,
         null,
         null,
-        "Chris Pratt apparently stole his Star-Lord costume from the set of Guardians of the Galaxy. He plans to wear it to children's hospitals to entertain sick children.",
+        "Tom Berenger’s lifelike scar required three hours of makeup work every day of shooting.",
         null,
         null,
         null,
@@ -111,16 +114,7 @@ fetch(
         null,
         null,
         null,
-        "During the filming of the scene where Hulk grabs Loki and smashes him on the ground in The Avengers, Tom Hiddleston's head was swapped with a stuntman's head to achieve the effect.",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "Tom Holland found out he got the role of Spider-Man through Instagram. He saw Marvel's post about it and thought it was a joke at first.",
+        "Although BB-8 is a machine, he has masculine programming, which means he is referred to with he/him pronouns.",
         null,
         null,
         null,
@@ -130,7 +124,7 @@ fetch(
         null,
         null,
         null,
-        "The Spider-Man suit in Spider-Man: Homecoming has 26 web wings under the arms, paying homage to the character's iconic comic book design.",
+        "George Lucas gave his (conditional) blessing",
         null,
         null,
         null,
@@ -140,7 +134,7 @@ fetch(
         null,
         null,
         null,
-        "Dave Bautista had to sit in a sauna for 45 minutes to put on the Drax makeup and prosthetics for Guardians of the Galaxy. The process took about 4 hours in total.",
+        "Spielberg directed all Indiana Jones films but the original concept was from George Lucas.",
         null,
         null,
         null,
@@ -150,7 +144,7 @@ fetch(
         null,
         null,
         null,
-        "Scarlett Johansson's fight scenes as Black Widow are so intense that she sometimes mistakenly hits her co-stars during filming.",
+        "V was played by four different actors.",
       ];
 
       let btnCuriosidad = document.getElementById("btnCuriosidad");
