@@ -82,7 +82,7 @@ fetch(
         // Si se alcanza el final de las preguntas
         let contenedorQuiz = document.getElementById("contenedor-quiz");
         contenedorQuiz.innerHTML =
-          "<h2>¡Has finalizado!</h2><p>Aciertos: " +
+          "<h2>Well done!!</h2><p>Correct Answers: " +
           contadorAciertos +
           " de " +
           objetosJson.length +
