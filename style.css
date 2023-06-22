@@ -34,7 +34,7 @@ body {
 #contenedor-quiz {
   width: 90vw;
   height: 70vh;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   max-width: 900px;
   border: 3px solid var(--color-01);
@@ -44,6 +44,14 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+#info {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 1rem;
+  font-size: 1.2rem;
 }
 
 #pregunta {
@@ -90,15 +98,24 @@ body {
   text-align: right;
 }
 
-/* #contadorAciertos {
-  display: hidden;
-} */
-
 #respuestaCorrecta {
   margin-top: 10px;
   margin-bottom: 15px;
   font-weight: bold;
   color: var(--color-03);
+}
+
+#btnSiguiente {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 8vw;
+  height: 8vw;
+  cursor: pointer;
+}
+
+#btnSiguiente[disabled] {
+  cursor: default;
 }
 
 #curiosidad {
@@ -108,31 +125,16 @@ body {
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-}
-
-#btnSiguiente {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
-  width: 50px;
-  font-size: 20px;
-  border-width: 5px;
-  grid-column-end: -1;
-}
-#btnSiguiente[disabled] {
-  cursor: default;
 }
 
 #btnCuriosidad {
-  bottom: 20px;
-  right: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 8vw;
+  height: 8vw;
   cursor: pointer;
-  width: 50px;
-  font-size: 20px;
-  border-width: 5px;
-  grid-column-end: -1;
-  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
