@@ -35,13 +35,13 @@ fetch(
               contadorAciertos++;
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
-              respuestaCorrectaElement.textContent = "¡Respuesta correcta!";
+              respuestaCorrectaElement.textContent = "Correct answer!";
               answerItem.style.backgroundColor = "#598e39";
             } else {
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent =
-                "La respuesta correcta es: " + respuestaCorrecta;
+                "The correct answer is: " + respuestaCorrecta;
               answerItem.style.backgroundColor = "#a93232";
             }
             mostrarBotonSiguiente();
@@ -56,7 +56,6 @@ fetch(
       let respuestaCorrectaElement =
         document.getElementById("respuestaCorrecta");
       respuestaCorrectaElement.textContent = ""; // Limpiar respuesta correcta previa
-
       let contadorAciertosElement = document.getElementById("contadorAciertos");
       contadorAciertosElement.textContent =
         "Correct answers: " + contadorAciertos;
@@ -81,12 +80,13 @@ fetch(
         indicePreguntasActual = 0;
         // Si se alcanza el final de las preguntas
         let contenedorQuiz = document.getElementById("contenedor-quiz");
+        contenedorQuiz.style.justifyContent = "center";
         contenedorQuiz.innerHTML =
           "<h2>Well done!!</h2><p>Correct Answers: " +
           contadorAciertos +
           " de " +
           objetosJson.length +
-          "</p>";
+          '</p><a href="index.html" id="btnReinicio" style="background: none; border: none; text-decoration: none;"><svg width="8vw" height="8vw" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M23 12c0-6.075-4.925-11-11-11S1 5.925 1 12s4.925 11 11 11 11-4.925 11-11ZM10.707 6.707a1 1 0 0 0-1.414-1.414l-2 2a1 1 0 0 0 0 1.414l2 2a1 1 0 0 0 1.414-1.414L10.414 9H14a1 1 0 0 1 1 1v1a1 1 0 1 0 2 0v-1a3 3 0 0 0-3-3h-3.586l.293-.293ZM9 13a1 1 0 1 0-2 0v1a3 3 0 0 0 3 3h3.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2a1 1 0 0 0-1.414 1.414l.293.293H10a1 1 0 0 1-1-1v-1Z" clip-rule="evenodd"></path></svg></a>';
         return;
       }
 
