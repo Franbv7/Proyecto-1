@@ -33,6 +33,10 @@ fetch(
             respuestaSeleccionada = true;
             if (respuestas[i] === respuestaCorrecta) {
               contadorAciertos++;
+              let contadorAciertosElement =
+                document.getElementById("contadorAciertos");
+              contadorAciertosElement.textContent =
+                "Correct answers: " + contadorAciertos;
               let respuestaCorrectaElement =
                 document.getElementById("respuestaCorrecta");
               respuestaCorrectaElement.textContent = "Correct answer!";
@@ -81,12 +85,16 @@ fetch(
         // Si se alcanza el final de las preguntas
         let contenedorQuiz = document.getElementById("contenedor-quiz");
         contenedorQuiz.style.justifyContent = "center";
+        contenedorQuiz.style.backgroundImage = 'url("images/VlC6.gif")';
+        contenedorQuiz.style.backgroundSize = "cover";
+        contenedorQuiz.style.backgroundRepeat = "no-repeat";
+        contenedorQuiz.style.color = "white";
         contenedorQuiz.innerHTML =
           "<h2>Well done!!</h2><p>Correct Answers: " +
           contadorAciertos +
-          " de " +
+          " of " +
           objetosJson.length +
-          '</p><a href="index.html" id="btnReinicio" style="background: none; border: none; text-decoration: none;"><svg width="8vw" height="8vw" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M23 12c0-6.075-4.925-11-11-11S1 5.925 1 12s4.925 11 11 11 11-4.925 11-11ZM10.707 6.707a1 1 0 0 0-1.414-1.414l-2 2a1 1 0 0 0 0 1.414l2 2a1 1 0 0 0 1.414-1.414L10.414 9H14a1 1 0 0 1 1 1v1a1 1 0 1 0 2 0v-1a3 3 0 0 0-3-3h-3.586l.293-.293ZM9 13a1 1 0 1 0-2 0v1a3 3 0 0 0 3 3h3.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2a1 1 0 0 0-1.414 1.414l.293.293H10a1 1 0 0 1-1-1v-1Z" clip-rule="evenodd"></path></svg></a>';
+          '</p><a href="index.html" id="btnReinicio" style="background: none; border: none; text-decoration: none;"><svg width="8vw" height="8vw" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M23 12c0-6.075-4.925-11-11-11S1 5.925 1 12s4.925 11 11 11 11-4.925 11-11ZM10.707 6.707a1 1 0 0 0-1.414-1.414l-2 2a1 1 0 0 0 0 1.414l2 2a1 1 0 0 0 1.414-1.414L10.414 9H14a1 1 0 0 1 1 1v1a1 1 0 1 0 2 0v-1a3 3 0 0 0-3-3h-3.586l.293-.293ZM9 13a1 1 0 1 0-2 0v1a3 3 0 0 0 3 3h3.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2a1 1 0 0 0-1.414 1.414l.293.293H10a1 1 0 0 1-1-1v-1Z" clip-rule="evenodd"></path></svg></a>';
         return;
       }
 
