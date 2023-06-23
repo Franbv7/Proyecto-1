@@ -180,10 +180,29 @@ body {
 }
 
 @media screen and (max-width: 540px) {
+  html,
+  body {
+    background-size: cover;
+  }
+
+  #info {
+    font-size: 1rem;
+  }
+
+  #pregunta::first-letter {
+    font-size: 1.5rem;
+  }
+
+  #pregunta {
+    margin-top: 10vw;
+  }
+
   #respuestas {
     width: 90%;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
+    padding-top: 0;
+    margin-bottom: 20vw;
   }
 
   #respuestas li {
@@ -196,6 +215,7 @@ body {
     font-family: var(--font-01);
     font-size: 4vw;
     width: 85%;
+    margin-top: 5vw;
   }
 
   #sectionPregunta {
@@ -213,5 +233,37 @@ body {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+  }
+
+  #btnSiguiente {
+    width: 12vw;
+    height: 12vw;
+  }
+  #btnSiguiente svg {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  #btnCuriosidad {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  #btnCuriosidad svg {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  #respuestaCorrecta {
+    padding-top: 75vw;
+    font-size: 1rem;
+    margin-top: 13vw;
+    position: absolute;
+  }
+
+  #curiosidad {
+    background-color: rgba(255, 255, 255, 1);
+    margin-top: 70vw;
+    position: absolute;
   }
 }
