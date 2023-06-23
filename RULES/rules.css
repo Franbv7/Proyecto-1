@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;700&display=swap");
+
+:root {
+  --color-01: #2f2d2d;
+  --color-02: #7a7272;
+  --color-03: #a93232;
+  --color-04: #598e39;
+  --color-05: #d5e5f1;
+
+  --font-01: "Luckiest Guy", cursive;
+  --font-02: "Rowdies", cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+  padding-bottom: 70px;
+  height: 100%;
+}
+
+#rules {
+  color: var(--color-05);
+  font-family: var(--font-01);
+  font-size: 30px;
+  text-align: start;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#rules h1 {
+  color: var(--color-05);
+  text-align: center;
+  text-decoration: underline;
+  font-size: 80px;
+  margin-bottom: 1rem;
+}
+
+#button {
+  font-size: 1.2rem;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 50px;
+  max-width: 200px;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+#button:active {
+  scale: 0.92;
+}
+
+#button:hover {
+  background: rgb(2, 29, 78);
+  background: linear-gradient(
+    270deg,
+    rgba(2, 29, 78, 0.681) 0%,
+    rgba(220, 233, 235, 0.873) 60%
+  );
+  color: rgb(4, 4, 38);
+}
+
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: right;
+  z-index: 9999;
+}
+
+#footer-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+#team {
+  display: flex;
+}
+
+#footer-content p {
+  color: var(--color-05);
+  font-family: var(--font-01);
+  font-size: 20px;
+  margin-right: 100px;
+}
+
+#footer-content a {
+  margin-right: 45px;
+  white-space: nowrap;
+}
+
+#footer-content a img {
+  width: 25px;
+}
+
+.borde-difuminado {
+  box-shadow: 10px 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+@keyframes color-change {
+  0% {
+    color: var(--color-02);
+  }
+  33% {
+    color: var(--color-04);
+  }
+  66% {
+    color: var(--color-03);
+  }
+}
+
+#rules p {
+  animation: color-change 10s infinite;
+}
+
+@media (max-width: 768px) {
+  #rules h1 {
+    font-size: 60px;
+  }
+
+  #footer-content p {
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  #rules h1 {
+    font-size: 40px;
+  }
+
+  #footer-content p {
+    margin-right: 30px;
+  }
+
+  #footer-content a {
+    margin-right: 15px;
+  }
+}
