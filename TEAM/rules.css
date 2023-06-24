@@ -182,8 +182,12 @@ footer {
   }
   footer {
     margin: auto;
+    margin-top: 10vh;
   }
   #rules p {
     font-size: 20px;
+  }
+  #footer-content a:hover img {
+    transform: none;
   }
 }
