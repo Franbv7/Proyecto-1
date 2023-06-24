@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 100vh;
   cursor: none;
-  background-image: url(../images/fondo-portada.png);
+  background-image: url(./images/fondo-portada.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
