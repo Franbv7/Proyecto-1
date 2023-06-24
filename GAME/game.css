@@ -31,6 +31,10 @@ body {
   background-attachment: fixed;
 }
 
+img {
+  object-fit: fill;
+}
+
 #contenedor-quiz {
   width: 90vw;
   height: 70vh;
@@ -56,6 +60,7 @@ body {
 
 #sectionPregunta {
   min-height: 400px;
+  max-width: 80%;
 }
 
 #pregunta {
@@ -156,83 +161,20 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  #sectionPregunta {
-    width: 100%;
-  }
-  #pregunta {
-    font-family: var(--font-01);
-    font-size: 4vw;
-    padding: 20px;
-  }
-
-  #respuestas {
-    width: 100%;
-  }
-
-  #navigation {
-    width: 100%;
-    max-width: 90%;
-    padding: 5px;
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  html,
-  body {
-    background-size: cover;
-  }
-
   #info {
-    font-size: 1rem;
-  }
-
-  #pregunta::first-letter {
     font-size: 1.5rem;
   }
 
   #pregunta {
-    margin-top: 10vw;
+    padding: 20px;
   }
 
   #respuestas {
-    width: 90%;
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
-    padding-top: 0;
-    margin-bottom: 20vw;
+    padding-bottom: 40px;
   }
 
-  #respuestas li {
-    font-size: 3vw;
-    text-align: center;
-    max-width: 55%;
-  }
-
-  #pregunta {
-    font-family: var(--font-01);
-    font-size: 4vw;
-    width: 85%;
-    margin-top: 5vw;
-  }
-
-  #sectionPregunta {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #navigation {
-    width: 100%;
-    max-width: 90%;
-    padding: 5px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
+  #respuestaCorrecta {
+    font-size: 1.4rem;
   }
 
   #btnSiguiente {
@@ -254,16 +196,100 @@ body {
     height: 12vw;
   }
 
-  #respuestaCorrecta {
-    padding-top: 75vw;
+  h2 {
+    font-size: 4rem;
+  }
+
+  #btnReinicio {
+    bottom: 15vw;
+    width: 14vw;
+    height: 14vw;
+  }
+
+  #btnReinicio svg {
+    width: 14vw;
+    height: 14vw;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  html,
+  body {
+    background-size: cover;
+  }
+
+  #info {
     font-size: 1rem;
-    margin-top: 13vw;
-    position: absolute;
+  }
+
+  #pregunta {
+    font-size: 1.3rem;
+  }
+
+  #pregunta::first-letter {
+    font-size: 2rem;
+  }
+
+  #sectionPregunta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #respuestas {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #respuestas li {
+    font-size: 3.5vw;
+    text-align: center;
+    max-width: 80%;
+  }
+
+  #respuestaCorrecta {
+    font-size: 1.1rem;
+  }
+
+  #btnSiguiente {
+    width: 16vw;
+    height: 16vw;
+  }
+  #btnSiguiente svg {
+    width: 16vw;
+    height: 16vw;
+  }
+
+  #btnCuriosidad {
+    width: 16vw;
+    height: 16vw;
+  }
+
+  #btnCuriosidad svg {
+    width: 16vw;
+    height: 16vw;
   }
 
   #curiosidad {
-    background-color: rgba(255, 255, 255, 1);
-    margin-top: 70vw;
-    position: absolute;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  #btnReinicio {
+    bottom: 15vw;
+    width: 18vw;
+    height: 18vw;
+  }
+
+  #btnReinicio svg {
+    width: 18vw;
+    height: 18vw;
   }
 }
