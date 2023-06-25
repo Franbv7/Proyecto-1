@@ -31,4 +31,4 @@ Al clickar en el siguiente botón ya dará paso al juego en el que encontramos l
 aparecerá un párrafo indicando que la respuesta no es correcta, proporcionándonos la solución y, ya podremos presionar el botón de avance a la siguiente pregunta.
 En las preguntas 10, 20, 30, 40 y 50 aparecerá otro botón a mayores que al presionarlo nos proporcionará una curiosidad sobre la pregunta que está en pantalla.
 
-Al finalizar el cuestionario se nos facilitará el número se aciertos así como un nuevo botón para volver a comenzar el cuestionario.
+Al finalizar el cuestionario se nos facilitará el número de aciertos así como un nuevo botón para volver a comenzar el cuestionario.
